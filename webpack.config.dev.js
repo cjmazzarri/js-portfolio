@@ -13,7 +13,6 @@ module.exports = {
         assetModuleFilename: 'assets/[hash][ext][query]'
     },
     mode: 'development',
-    watch: true,
     resolve: {
         extensions: ['.js'], //extensiones de archivos con los q se va a trabajar
         alias: {
@@ -85,4 +84,12 @@ module.exports = {
         }),
         new DotEnv(),
     ],
+    devServer: {
+        //deprecated!
+        //contentBase: path.join(__dirname, 'dist')
+        static: path.join(__dirname, 'dist'),
+        compress: true,
+        historyApiFallback: true,
+        port: 3000
+    }
 }
